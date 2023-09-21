@@ -3,7 +3,7 @@ import axios from "axios";
 import "./GiphyGallery.css";
 import { useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { TouchBackend } from "react-dnd-touch-backend";
+// import { TouchBackend } from "react-dnd-touch-backend";
 import { DndProvider } from "react-dnd";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
@@ -48,7 +48,7 @@ const GiphyGallery = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const apiKey = "dZy4CZaWJ1z8PxkJJbeqbR5pLxSdvBCJ";
 
-  const isTouchDevice = "ontouchstart" in window;
+//   const isTouchDevice = "ontouchstart" in window;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +86,7 @@ const GiphyGallery = () => {
   };
 
   return (
-    <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
+    <DndProvider backend={ HTML5Backend}>
       <div>
         <div className="search-container">
           <h3>Image & Stickers Gallery</h3>
