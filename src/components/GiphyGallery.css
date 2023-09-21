@@ -40,7 +40,7 @@
   gap: 16px;
   margin: 0 auto;
   max-width: 700px; /* Maximum width of the gallery */
-  background-color: rgba(205, 99, 71, 0.1);
+  background-color: rgba(230, 99, 71, 0.1);
 }
 
 .gallery-item {
@@ -76,7 +76,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .gallery-item {
     height: 330px;
   }

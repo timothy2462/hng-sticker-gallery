@@ -35,7 +35,7 @@ const Login = () => {
     } catch (e) {
       if (e.code === "auth/invalid-login-credentials") {
         setError(
-          "Ooops! Invalid login credentials. You do not have an account with Timothy, pls click the Sign up to register."
+          "Ooops! Invalid login credentials. pls register."
         );
       } else {
         setError(e.message);
