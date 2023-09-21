@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./GiphyGallery.css";
@@ -6,8 +5,10 @@ import { useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import { DndProvider } from "react-dnd";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase-config";
+import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
+
+import "../App.css";
 
 // DraggableImage component for individual stickers
 function DraggableImage({ sticker, index, stickers, setStickers }) {
@@ -72,13 +73,15 @@ const GiphyGallery = () => {
     fetchData();
   }, [searchQuery]);
 
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      await signOut(auth);
-      // Redirect to the login page after logout
-      window.location.href = "/login";
-    } catch (error) {
-      console.error("Error signing out:", error);
+      await logout();
+      navigate("/");
+      console.log("You are logged out");
+    } catch (e) {
+      console.log(e.message);
     }
   };
 
@@ -87,18 +90,18 @@ const GiphyGallery = () => {
       <div>
         <div className="search-container">
           <h3>Image & Stickers Gallery</h3>
-          
+
           <div className="input-section">
-          <input
-            type="text"
-            placeholder="Search. eg emoji, animals, food, drinks etc "
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="input"
-          />
-          <button onClick={handleLogout} className="logout-btn">
-            Logout
-          </button>
+            <input
+              type="text"
+              placeholder="Search. eg emoji, animals, food, drinks etc "
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="input"
+            />
+            <button onClick={handleLogout} className="logout-btn">
+              Log out
+            </button>
           </div>
           <p>
             {searchQuery
@@ -123,13 +126,3 @@ const GiphyGallery = () => {
 };
 
 export default GiphyGallery;
-
-
-
-
-
-
-
-
-
-

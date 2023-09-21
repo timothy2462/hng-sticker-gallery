@@ -1,28 +1,28 @@
-
-import React, { useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase-config";
-import AppRouter from "./components/Router";
-
+import React from "react";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import GiphyGallery from "./components/GiphyGallery";
+import { Route, Routes } from "react-router-dom";
+import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProctectedRoute";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Firebase authentication listener
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthenticated(true);
-      } else {
-        setAuthenticated(false);
-      }
-    });
-  }, []);
-
   return (
-    <div className="App">
-      {/* <AppRouter authenticated={authenticated} /> */}
-      <AppRouter authenticated={authenticated} />
+    <div>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/giphygallery"
+            element={
+              <ProtectedRoute>
+                <GiphyGallery />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
     </div>
   );
 }

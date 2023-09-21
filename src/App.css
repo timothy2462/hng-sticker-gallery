@@ -4,6 +4,6 @@
     box-sizing: border-box;
 }
 body{
-    /* background-color: rgba(193, 196, 201.3); */
-    background-color: rgba(48, 25, 52, 1);
+
+    background-color: rgba(48, 25, 52, .8);
 }

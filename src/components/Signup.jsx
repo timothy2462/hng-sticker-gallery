@@ -1,55 +1,59 @@
 import React, { useState } from "react";
-// import { Auth } from "firebase/auth";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase-config";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 import "./Login.css";
-import "../App.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { createUser } = UserAuth();
+  const navigate = useNavigate();
 
-  const signUp = (e) => {
-    //todo sign in
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    setError("");
+    try {
+      await createUser(email, password);
+      navigate("/account");
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-form">
-        <form onSubmit={signUp}>
-          <div className="create-acct">
-          <p>Create Account</p>
-          </div>
+    <div className="signup-page">
+      <div className="signup-container">
+        <div className="create-account">
+          <p>Create a free account</p>
+        </div>
+        <form onSubmit={handleSubmit}>
           <div className="email">
-          <input
-            type="email"
-            placeholder="Enter a valid email address "
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              className=""
+              type="email"
+              placeholder="Valid Email ID "
+            />
           </div>
-            <div className="password">
-          <input
-            type="password"
-            placeholder="Enter a valid password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div className="password">
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Valid password"
+            />
           </div>
-          <div className="signup-div">
-          <button type="submit" className="signup-btn">Sign up</button>
+          <div className="have-acct">
+            <p>
+              Already have an account ?
+              <Link to="/" className="underline">
+                Sign in.
+              </Link>
+            </p>
+          </div>
+          <div className="signup-btn">
+            <button>Sign Up</button>
           </div>
         </form>
       </div>
