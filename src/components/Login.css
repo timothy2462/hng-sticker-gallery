@@ -47,7 +47,7 @@ input {
 .error-message p {
   color: red;
   width: 20em;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .login-img,
 .email,

@@ -39,7 +39,7 @@
   ); /* 4 items per row */
   gap: 16px;
   margin: 0 auto;
-  max-width: 700px; /* Maximum width of the gallery */
+  max-width: 900px; /* Maximum width of the gallery */
   background-color: rgba(230, 99, 71, 0.1);
 }
 
@@ -76,7 +76,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
   .gallery-item {
     height: 330px;
   }
