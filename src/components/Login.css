@@ -39,10 +39,10 @@ input {
 }
 
 .login-btn button {
-  width: 6rem;
-  height: 1.7rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+    width: 9rem;
+    height: 2.2rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 .error-message p {
   color: red;
@@ -85,23 +85,23 @@ input {
   outline: none;
 }
 .create-account p {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   color: white;
   font-weight: 600;
-  margin-bottom: 2rem;
-  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  margin-top: 0.8rem;
 }
 
 .have-acct {
   color: white;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 .signup-btn button {
-  width: 6rem;
-  height: 1.7rem;
-  font-size: 0.8rem;
+  width: 9rem;
+  height: 2.2rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 .create-account,
