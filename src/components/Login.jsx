@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import "./Login.css";
+import loginIcon from './images.png'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -47,7 +48,7 @@ const Login = () => {
     <div className="login-page">
       <div className="login-container">
         <div className="login-img">
-          <img src="../public/images.png" alt="login icon" />
+          <img src={loginIcon} alt="login icon" />
         </div>
         <div className="error-message">{error && <p>{error}</p>}</div>
         <form onSubmit={handleSubmit}>

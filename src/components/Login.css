@@ -7,11 +7,11 @@
 }
 
 .login-container {
-  max-width: 30rem;
+  max-width: 45rem;
   margin: 0 auto;
-  height: 80vh;
+  /* height: 80vh; */
   background-color: rgba(48, 25, 52, 0.8);
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .login-img img {
@@ -19,12 +19,12 @@
   border-radius: 50%;
 }
 input {
-  width: 16rem;
-  height: 1.8rem;
+  width: 20rem;
+  height: 3rem;
   margin: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 6px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   outline: none;
 }
@@ -69,19 +69,18 @@ input {
   height: 100vh;
 }
 .signup-container {
-  max-width: 30rem;
+  max-width: 45rem;
   margin: 0 auto;
-  height: 80vh;
-  background-color: rgba(48, 25, 52, 0.8);
-  border-radius: 15px;
+   background-color: rgba(48, 25, 52, 0.8);
+  border-radius: 20px;
 }
 input {
-  width: 16rem;
-  height: 1.8rem;
-  margin: 0.5rem;
-  font-size: 0.8rem;
+  width: 20rem;
+  height: 3rem;
+  margin: 1rem;
+  font-size: 1rem;
   padding: 6px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   outline: none;
 }
